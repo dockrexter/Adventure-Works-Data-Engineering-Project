@@ -27,4 +27,4 @@ This project uses the **Medallion Architecture**:
 
 
 ### 🧩 Pipeline Flow
-![ADF Pipeline](./data_ingestion_pipeline.png)
+![ADF Pipeline](./data_pipeline.png)

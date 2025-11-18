@@ -1,0 +1,40 @@
+CREATE DATABASE SCOPED CREDENTIAL cred_shaheer
+WITH 
+    IDENTITY = 'Managed Identity'
+
+CREATE EXTERNAL DATA SOURCE source_silver
+WITH
+  (  
+    LOCATION = 'https://awstoragedatalakesh.dfs.core.windows.net/silver',
+    CREDENTIAL = cred_shaheer
+  )
+CREATE EXTERNAL DATA SOURCE source_gold
+WITH
+  (  
+    LOCATION = 'https://awstoragedatalakesh.dfs.core.windows.net/gold',
+    CREDENTIAL = cred_shaheer
+  )
+
+CREATE EXTERNAL FILE FORMAT format_parquet
+WITH 
+    (
+        FORMAT_TYPE = PARQUET,
+        DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
+    )
+
+CREATE EXTERNAL TABLE gold.extsales
+WITH
+(
+    LOCATION = 'extsales',
+    DATA_SOURCE = source_gold,
+    FILE_FORMAT =format_parquet
+)
+AS
+SELECT * FROM gold.sales
+
+
+
+
+
+
+

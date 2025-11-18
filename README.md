@@ -20,4 +20,11 @@ This project uses the **Medallion Architecture**:
 
 - 🥉 Bronze → Raw, unprocessed data  
 - 🥈 Silver → Cleaned, structured, validated data  
-- 🥇 Gold → Business-ready analytics layer  
+- 🥇 Gold → Business-ready analytics layer
+  
+### 🧱 Solution Architecture Diagram
+![Architecture](./aw-arch-diagrame.jpg)
+
+
+### 🧩 Pipeline Flow
+![ADF Pipeline](./data_ingestion_pipeline.png)
